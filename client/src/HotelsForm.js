@@ -39,7 +39,7 @@ function HotelsForm({trip, setHotels}) {
   return(
     <div className="card mt-5 mb-2" >
      <div className="card-header"><h4>New Hotel</h4></div>
-       <form onSubmit={createHotel}>
+       <form className="ml-4" onSubmit={createHotel}>
         <input className=" mr-4" ref={check_in} type="date" name="check in" placeholder="Check in" required/>
         <input className=" mr-4" ref={check_out} type="date" name="check out" placeholder="Check out" required/>
         <input className=" mr-4" ref={location} type="text" name="location" placeholder="Location" required/>

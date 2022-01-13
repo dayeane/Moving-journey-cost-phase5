@@ -39,7 +39,7 @@ function ProvidersForm({trip, setProviders}) {
   return(
     <div className="card mt-5 mb-2" >
      <div className="card-header"><h4>New Provider</h4></div>
-       <form onSubmit={createProvider}>
+       <form className="ml-4" onSubmit={createProvider}>
         <input className="mr-4" ref={name} type="text" name="name" placeholder="Name" required/>
         <input className="mr-4" ref={date} type="date" name="date" placeholder="Date" required/>
         <input className="mr-4" ref={note} type="text" name="note" placeholder="Note"/>

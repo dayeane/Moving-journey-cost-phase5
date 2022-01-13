@@ -37,7 +37,7 @@ function StopsForm({trip, setStop}) {
   return(
     <div className="card mt-5 mb-2" >
      <div className="card-header"><h4>New Stop</h4></div>
-       <form onSubmit={createStop}>
+       <form className="ml-4" onSubmit={createStop}>
         <input className=" mr-4 " ref={stop_reason}type="text" name="stop reason" placeholder="Stop reason" required/>
         <input className=" mr-4"  ref={note}type="text" name="notes" placeholder="Notes"/>
         <input className=" mr-4"  ref={cost}type="number" name="cost" placeholder="Amount" required/>

@@ -40,10 +40,10 @@ function HotelsForm({trip, setHotels}) {
     <div className="card mt-5 mb-2" >
      <div className="card-header"><h4>New Hotel</h4></div>
        <form onSubmit={createHotel}>
-        <input className=" mr-4" ref={check_in} type="date" name="check in" placeholder="Check in"/>
-        <input className=" mr-4" ref={check_out} type="date" name="check out" placeholder="Check out"/>
-        <input className=" mr-4" ref={location} type="text" name="location" placeholder="Location"/>
-        <input className=" mr-4" ref={cost} type="number" name="cost" placeholder="Cost"/>
+        <input className=" mr-4" ref={check_in} type="date" name="check in" placeholder="Check in" required/>
+        <input className=" mr-4" ref={check_out} type="date" name="check out" placeholder="Check out" required/>
+        <input className=" mr-4" ref={location} type="text" name="location" placeholder="Location" required/>
+        <input className=" mr-4" ref={cost} type="number" name="cost" placeholder="Cost" required/>
         <button type="submit" className="btn btn-primary mb-2 mt-2 mr-6">Submit</button>
       </form>
     </div>

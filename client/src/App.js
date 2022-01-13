@@ -33,7 +33,7 @@ function App() {
           </div>
           <form className="col-6 offset-3 mt-5 mb-5" onSubmit={getTrip}>
             <div className="form-group">
-              <input type="number" ref={tripId} placeholder="Trip ID"  className="form-control"/>
+              <input type="number" ref={tripId} placeholder="Trip ID" className="form-control" required/>
             </div>
             <button type="submit" className="btn btn-primary">Submit</button>
           </form>

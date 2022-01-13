@@ -40,10 +40,10 @@ function ProvidersForm({trip, setProviders}) {
     <div className="card mt-5 mb-2" >
      <div className="card-header"><h4>New Provider</h4></div>
        <form onSubmit={createProvider}>
-        <input className="mr-4" ref={name} type="text" name="name" placeholder="Name"/>
-        <input className="mr-4" ref={date} type="date" name="date" placeholder="Date"/>
+        <input className="mr-4" ref={name} type="text" name="name" placeholder="Name" required/>
+        <input className="mr-4" ref={date} type="date" name="date" placeholder="Date" required/>
         <input className="mr-4" ref={note} type="text" name="note" placeholder="Note"/>
-        <input className="mr-4" ref={cost} type="number" name="cost" placeholder="Cost"/>
+        <input className="mr-4" ref={cost} type="number" name="cost" placeholder="Cost" required/>
         <button type="submit" className="btn btn-primary mt-2 mb-2 mr-6">Submit</button>
       </form>
     </div>

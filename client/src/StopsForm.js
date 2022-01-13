@@ -40,7 +40,7 @@ function StopsForm({trip, setStop}) {
        <form onSubmit={createStop}>
         <input className=" mr-4 " ref={stop_reason}type="text" name="stop reason" placeholder="Stop reason"/>
         <input className=" mr-4"  ref={note}type="text" name="notes" placeholder="Notes"/>
-        <input className=" mr-4"  ref={cost}type="text" name="cost" placeholder="Amount"/>
+        <input className=" mr-4"  ref={cost}type="number" name="cost" placeholder="Amount"/>
         <button type="submit" className="btn btn-primary mt-2 mb-2 mr-6">Submit</button>
       </form>
     </div>

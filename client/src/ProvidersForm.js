@@ -43,7 +43,7 @@ function ProvidersForm({trip, setProviders}) {
         <input className="mr-4" ref={name} type="text" name="name" placeholder="Name"/>
         <input className="mr-4" ref={date} type="date" name="date" placeholder="Date"/>
         <input className="mr-4" ref={note} type="text" name="note" placeholder="Note"/>
-        <input className="mr-4" ref={cost} type="text" name="cost" placeholder="Cost"/>
+        <input className="mr-4" ref={cost} type="number" name="cost" placeholder="Cost"/>
         <button type="submit" className="btn btn-primary mt-2 mb-2 mr-6">Submit</button>
       </form>
     </div>

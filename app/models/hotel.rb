@@ -4,6 +4,10 @@ class Hotel < ActiveRecord::Base
 
   accepts_nested_attributes_for :cost
 
+  geocoded_by :location
+
+  after_validation :geocode, if: :location_changed?
+
   def hotel_json
     to_json(include: :cost)
   end

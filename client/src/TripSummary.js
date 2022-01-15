@@ -1,9 +1,19 @@
 import {useState} from 'react'
 import TripEditForm from "./TripEditForm";
+import ReactMapGL from 'react-map-gl';
+import { Marker } from 'react-map-gl';
 
 function TripSummary({trip}) {
   const [currentTrip, setCurrentTrip] = useState(trip)
   const [editMode, setEditMode] = useState(false)
+  const [viewport, setViewport] = useState({
+    latitude: currentTrip.from_latitude,
+    longitude: currentTrip.from_longitude,
+    width: '100%',
+    height: '300px',
+    zoom: 8
+  });
+
   let total_cost = 0
 
   if (!trip) {
@@ -42,6 +52,25 @@ function TripSummary({trip}) {
             <p className="col"><span className="font-weight-bold">Total Expenses:</span> { total_cost }</p>
           </div>
         </div>
+
+        <ReactMapGL
+          {...viewport}
+          className='map'
+          mapboxApiAccessToken="pk.eyJ1IjoiYWZ1cm8iLCJhIjoiY2t5ZW4zOWFpMGRqczJxcWtheWNvZHQ2aiJ9.hn3zYWxYhJZv0YcZAVQcsA"
+          onViewportChange={(viewport) => setViewport(viewport)}
+        >
+          <Marker key={currentTrip.id} latitude={currentTrip.from_latitude} longitude={currentTrip.from_longitude}>
+            <button class='marker-button'>
+              <img className='marker-button' src='/logo.svg' alt='FROM'/>
+            </button>
+          </Marker>
+
+          <Marker key={currentTrip.id} latitude={currentTrip.to_latitude} longitude={currentTrip.to_longitude}>
+            <button class='marker-button'>
+              <img className='marker-button' src='/logo.svg' alt='TO'/>
+            </button>
+          </Marker>
+        </ReactMapGL>
       </div>
     )
   }

@@ -5,11 +5,12 @@ import Hotels from "./Hotels";
 import Providers from "./Providers";
 import Stops from "./Stops";
 import TripForm from "./TripForm";
+import { Switch, Route } from 'react-router-dom';
+import Nav from './Nav'
 
 function App() {
   const [trip, setTrip] = useState({});
   const tripId = useRef('');
-
 
   function getTrip(e) {
     e.preventDefault()
@@ -45,15 +46,23 @@ function App() {
   }
 
   return (
-    <>
-      <TripSummary trip={trip} />
-      <Hotels trip={trip} />
-      <Providers trip={trip} />
-      <Stops trip={trip} />
-    </>
-
-
-
+    <div className="App">
+      <Nav/>
+      <Switch>
+        <Route path='/hotels'>
+          <Hotels trip={trip} />
+        </Route>
+        <Route path='/providers'>
+          <Providers trip={trip} />
+        </Route>
+        <Route path='/stops'>
+          <Stops trip={trip} />
+        </Route>
+        <Route path='/'>
+          <TripSummary trip={trip} />
+        </Route>
+      </Switch>
+    </div>
   )
 
 }

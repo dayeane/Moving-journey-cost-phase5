@@ -5,7 +5,7 @@ puts "🌱 Seeding spices..."
 
 (0..5).each do |num|
   puts "creating_trip #{num}"
-  trip1 = Trip.create(from: Faker::Address.city, to: Faker::Address.city, depart_date: Date.today, budget: 16)
+  trip1 = Trip.create(from: Faker::Address.full_address, to: Faker::Address.full_address, depart_date: Date.today, budget: 16)
 
   (0..5).each do |num2|
     puts "creating_stops #{num2}"
@@ -15,7 +15,7 @@ puts "🌱 Seeding spices..."
 
   (0..5).each do |num3|
     puts "creating_hotels #{num3}"
-    hotel = trip1.hotels.create(check_in: Date.today, check_out: Date.tomorrow, location: Faker::Address.city)
+    hotel = trip1.hotels.create(check_in: Date.today, check_out: Date.tomorrow, location: Faker::Address.full_address)
     hotel.create_cost(amount: Faker::Number.number(digits: 3), trip: trip1)
   end
 

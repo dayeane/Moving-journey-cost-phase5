@@ -13,18 +13,29 @@ class Trip < ActiveRecord::Base
   end
 
   def geocode_endpoints
+
     if from_changed?
-      geocoded = Geocoder.search(from).first
-      if geocoded
-        self.from_latitude = geocoded.latitude
-        self.from_longitude = geocoded.longitude
+      url = "http://api.positionstack.com/v1/forward?access_key=1bc72b66b8387a97321dcaf29b1d5856&query=#{from}"
+      data = JSON.parse(RestClient.get(url).body)['data'].first
+      puts(from)
+      if data
+        self.from_latitude = data['latitude']
+        self.from_longitude = data['longitude']
+      else
+        self.from_latitude = nil
+        self.from_longitude = nil
       end
     end
     if to_changed?
-      geocoded = Geocoder.search(to).first
-      if geocoded
-        self.to_latitude = geocoded.latitude
-        self.to_longitude = geocoded.longitude
+      url = "http://api.positionstack.com/v1/forward?access_key=1bc72b66b8387a97321dcaf29b1d5856&query=#{to}"
+      data = JSON.parse(RestClient.get(url).body)['data'].first
+      puts(to)
+      if data
+        self.to_latitude = data['latitude']
+        self.to_longitude = data['longitude']
+      else
+        self.to_latitude = nil
+        self.to_longitude = nil
       end
     end
   end

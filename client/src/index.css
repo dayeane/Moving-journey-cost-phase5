@@ -11,3 +11,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.marker-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.marker-button img {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  left: -100%;
+  top: -100%;
+}

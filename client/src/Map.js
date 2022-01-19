@@ -12,6 +12,23 @@ export default function Map({trip}) {
     zoom: 11
   });
 
+
+  // const [directions, setDirections] = useState(null);
+
+  // fetch(`https://api.mapbox.com/directions/v5/mapbox/driving/${trip.from_longitude + ',' + trip.from_latitude + ';' + trip.to_longitude + ',' + trip.to_latitude}?access_token={MAPBOX_TOKEN}`)
+  // .then(response => response.json())
+  // .then(directionsRes => {
+  //   setDirections([{
+  //     path: [[-111.720440,40.318460],[directionsRes.waypoints[1].location[0],directionsRes.waypoints[1].location[1]]],
+  //     name: 'location-location',
+  //     color: [0,0,0]
+  //   }])
+  // })
+  // const start = document.querySelector('[placeholder="Choose a starting place"]')
+  // const destination = document.querySelector('[placeholder="Choose destination"]')
+  // start.value = (trip.from)
+  // destination.value = (trip.to)
+
   return (
     <ReactMapGL
       {...viewport}

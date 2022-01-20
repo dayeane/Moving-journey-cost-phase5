@@ -11,7 +11,7 @@ class Hotel < ActiveRecord::Base
 
     url = "http://api.positionstack.com/v1/forward?access_key=1bc72b66b8387a97321dcaf29b1d5856&query=#{location}"
     data = JSON.parse(RestClient.get(url).body)['data'].first
-    puts(location)
+
     if data
       self.latitude = data['latitude']
       self.longitude = data['longitude']

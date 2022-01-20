@@ -1,9 +1,8 @@
 import {useState} from 'react'
 import ReactMapGL, { Marker } from 'react-map-gl';
 
-import hotel_icon from './assets/hotel.png'
 
-function Map({zoom, latitude, longitude, locations}) {
+function Map({zoom, latitude, longitude, locations, point_icon}) {
   const MAPBOX_TOKEN = 'pk.eyJ1IjoiYWZ1cm8iLCJhIjoiY2t5ZW4zOWFpMGRqczJxcWtheWNvZHQ2aiJ9.hn3zYWxYhJZv0YcZAVQcsA'
   const [viewport, setViewport] = useState({
     latitude: latitude,
@@ -24,7 +23,7 @@ function Map({zoom, latitude, longitude, locations}) {
           return (
             <Marker key={location.id} latitude={location.latitude} longitude={location.longitude}>
               <button class='marker-button'>
-                <img className='marker-button' src={hotel_icon} alt='hotel'/>
+                <img className='marker-button' src={point_icon} alt='hotel'/>
               </button>
             </Marker>
           )

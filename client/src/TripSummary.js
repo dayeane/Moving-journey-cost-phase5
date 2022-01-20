@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import TripEditForm from "./TripEditForm";
-// import Map from './Map'
+import MapRoutes from './MapRoutes'
 
 function TripSummary({trip}) {
   const [currentTrip, setCurrentTrip] = useState(trip)
@@ -23,6 +23,8 @@ function TripSummary({trip}) {
   } else {
     return (
       <div className="card mt-5">
+        <MapRoutes zoom={11} from_latitude={trip.from_latitude} from_longitude={trip.from_longitude} to_latitude={trip.to_latitude} to_longitude={trip.to_longitude}/>
+
         <div className="card-header font-weight-bold d-flex justify-content-between">
           <h4>Trip Summary</h4>
           <div className="custom-control custom-switch">
@@ -44,8 +46,6 @@ function TripSummary({trip}) {
             <p className="col"><span className="font-weight-bold">Total Expenses:</span> { total_cost }</p>
           </div>
         </div>
-
-        {/* <Map trip={trip} /> */}
       </div>
     )
   }

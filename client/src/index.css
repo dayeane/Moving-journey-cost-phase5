@@ -25,3 +25,8 @@ code {
   left: -100%;
   top: -100%;
 }
+
+.marker-btn {
+  width: 30px;
+  height: 30px;
+}

@@ -19,10 +19,12 @@ function Map({zoom, from_latitude, from_longitude, to_latitude, to_longitude}) {
   fetch(`https://api.mapbox.com/directions/v5/mapbox/driving/${from_longitude + ',' + from_latitude + ';' + to_longitude + ',' + to_latitude}?geometries=geojson&access_token=${MAPBOX_TOKEN}`)
   .then(response => response.json())
   .then(data => {
-    setTripRoute({
-      ...tripRoute,
-      geometry: data['routes'][0]["geometry"]
-    })
+    if (data['routes']) {
+      setTripRoute({
+        ...tripRoute,
+        geometry: data['routes'][0]["geometry"]
+      })
+    }
   })
 
   return (
@@ -37,11 +39,11 @@ function Map({zoom, from_latitude, from_longitude, to_latitude, to_longitude}) {
         onViewportChange={setViewport}>
 
         <Marker latitude={from_latitude} longitude={from_longitude}>
-          <img class='marker-btn' src={point_icon} alt='LOCATION'/>
+          <img className='marker-btn' src={point_icon} alt='LOCATION'/>
         </Marker>
 
         <Marker latitude={to_latitude} longitude={to_longitude}>
-          <img class='marker-btn' src={point_icon} alt='LOCATION'/>
+          <img className='marker-btn' src={point_icon} alt='LOCATION'/>
         </Marker>
 
         <Source id='route' type='geojson' data={tripRoute} />

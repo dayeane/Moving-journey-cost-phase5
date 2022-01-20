@@ -3,25 +3,25 @@ class HotelsController < ApplicationController
   before_action :set_trip, only: %i[index create show update destroy]
 
   def index
-    render json: @trip.hotels.hotel_json, status: :ok
+    render json: @trip.hotels, status: :ok
   end
 
   def show
-    render json: @hotel.hotel_json, status: :ok
+    render json: @hotel, status: :ok
   end
 
   def create
     @hotel = @trip.hotels.create(hotel_params)
-    render json: @trip.hotels.hotel_json, status: :ok if @hotel
+    render json: @trip.hotels, status: :ok if @hotel
   end
 
   def update
     @hotel.update(hotel_params)
-    render json: @hotel.hotel_json, status: :ok
+    render json: @hotel, status: :ok
   end
 
   def destroy
-    render json: @trip.hotels.hotel_json, status: :ok if @hotel.destroy()
+    render json: @trip.hotels, status: :ok if @hotel.destroy()
   end
 
   private

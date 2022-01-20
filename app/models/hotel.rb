@@ -6,14 +6,6 @@ class Hotel < ActiveRecord::Base
 
   before_save :geocode_endpoint
 
-  def hotel_json
-    to_json(include: :cost)
-  end
-
-  scope :hotel_json, lambda {
-    to_json(include: :cost)
-  }
-
   def geocode_endpoint
     return unless location_changed?
 

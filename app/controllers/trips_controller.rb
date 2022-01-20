@@ -7,21 +7,21 @@ class TripsController < ApplicationController
   end
 
   def show
-    render json: @trip.trip_json, status: :ok
+    render json: @trip, status: :ok
   end
 
   def create
     @trip = Trip.create(trip_params)
-    render json: @trip.trip_json, status: :ok if @trip
+    render json: @trip, status: :ok if @trip
   end
 
   def update
     @trip.update(trip_params)
-    render json: @trip.trip_json, status: :ok
+    render json: @trip, status: :ok
   end
 
   def destroy
-    render json: @trip.destroy().to_json, status: :ok
+    render json: @trip.destroy(), status: :ok
   end
 
   private

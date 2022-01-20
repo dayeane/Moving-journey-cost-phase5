@@ -3,25 +3,25 @@ class ProvidersController < ApplicationController
   before_action :set_trip, only: %i[index create show update destroy]
 
   def index
-    render json: @trip.providers.provider_json, status: :ok
+    render json: @trip.providers, status: :ok
   end
 
   def show
-    render json: @provider.provider_json, status: :ok
+    render json: @provider, status: :ok
   end
 
   def create
     @provider = @trip.providers.create(provider_params)
-    render json: @trip.providers.provider_json, status: :ok if @provider
+    render json: @trip.providers, status: :ok if @provider
   end
 
   def update
     @provider.update(provider_params)
-    render json: @provider.provider_json, status: :ok
+    render json: @provider, status: :ok
   end
 
   def destroy
-    render json: @trip.providers.provider_json, status: :ok if @provider.destroy()
+    render json: @trip.providers, status: :ok if @provider.destroy()
   end
 
   private

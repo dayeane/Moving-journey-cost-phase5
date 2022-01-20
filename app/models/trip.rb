@@ -6,12 +6,6 @@ class Trip < ActiveRecord::Base
 
   before_save :geocode_endpoints
 
-  def trip_json
-    to_json(include: { hotels: { include: { cost: {} }},
-                                 providers: { include: {cost: {} }},
-                                 costs: {}})
-  end
-
   def geocode_endpoints
 
     if from_changed?

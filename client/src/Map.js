@@ -1,16 +1,31 @@
 import {useState} from 'react'
 import ReactMapGL, { Marker } from 'react-map-gl';
+// import mapboxgl from 'mapbox-gl';
 
 import point_icon from './assets/point.png'
 import hotel_icon from './assets/hotel.png'
+// var MapboxDirections = require('@mapbox/mapbox-gl-directions')
 
-export default function Map({trip}) {
+function Map({trip, zoom, latitude, longitude, locations}) {
   const MAPBOX_TOKEN = 'pk.eyJ1IjoiYWZ1cm8iLCJhIjoiY2t5ZW4zOWFpMGRqczJxcWtheWNvZHQ2aiJ9.hn3zYWxYhJZv0YcZAVQcsA'
   const [viewport, setViewport] = useState({
-    latitude: trip.from_latitude,
-    longitude: trip.from_longitude,
-    zoom: 11
+    latitude: latitude,
+    longitude: longitude,
+    zoom: zoom
   });
+
+  // mapboxgl.accessToken = MAPBOX_TOKEN
+  // const map = new mapboxgl.Map({
+  //   container: 'map',
+  //   style: 'mapbox://styles/mapbox/streets-v11',
+  // });
+
+  // map.addControl(new MapboxDirections({
+  //   accessToken: mapboxgl.accessToken
+  // }),
+  // 'top-left');
+
+
 
 
   // const [directions, setDirections] = useState(null);
@@ -32,12 +47,11 @@ export default function Map({trip}) {
   return (
     <ReactMapGL
       {...viewport}
-      className='map'
       width="100%"
       height="400px"
       mapboxApiAccessToken={MAPBOX_TOKEN}
-      onViewportChange={(viewport) => setViewport(viewport)}
-    >
+      onViewportChange={setViewport}>
+
       <Marker key='11111' latitude={trip.from_latitude} longitude={trip.from_longitude}>
         <button class='marker-button'>
           <img className='marker-button' src={point_icon} alt='FROM'/>
@@ -50,17 +64,19 @@ export default function Map({trip}) {
         </button>
       </Marker>
 
-      {trip.hotels.map((hotel) => {
-        if (hotel.latitude && hotel.longitude) {
+      {locations.map((location) => {
+        if (location.latitude && location.longitude) {
           return (
-            <Marker key={hotel.id} latitude={hotel.latitude} longitude={hotel.longitude}>
-            <button class='marker-button'>
-              <img className='marker-button' src={hotel_icon} alt='hotel'/>
-            </button>
-          </Marker>
+            <Marker key={location.id} latitude={location.latitude} longitude={location.longitude}>
+              <button class='marker-button'>
+                <img className='marker-button' src={hotel_icon} alt='hotel'/>
+              </button>
+            </Marker>
           )
         } else { return null }
       })}
     </ReactMapGL>
   )
 }
+
+export default Map

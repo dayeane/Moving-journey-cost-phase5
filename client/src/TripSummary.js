@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import TripEditForm from "./TripEditForm";
-import Map from './Map'
+// import Map from './Map'
 
 function TripSummary({trip}) {
   const [currentTrip, setCurrentTrip] = useState(trip)
@@ -45,7 +45,7 @@ function TripSummary({trip}) {
           </div>
         </div>
 
-        <Map trip={trip} />
+        {/* <Map trip={trip} /> */}
       </div>
     )
   }

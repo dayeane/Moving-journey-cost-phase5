@@ -1,5 +1,6 @@
 import {useState} from "react"
 import HotelsForm from "./HotelsForm";
+import Map from './Map'
 
 function Hotels({trip}) {
   const [hotels, setHotels] = useState(trip.hotels);
@@ -13,6 +14,7 @@ function Hotels({trip}) {
   }
   return(
     <>
+      <Map trip={trip} zoom={11} latitude={trip.from_latitude} longitude={trip.from_latitude} locations={trip.hotels}/>
       <div className="card mt-5">
         <div className="card-header font-weight-bold">
           <h4>Hotels</h4>

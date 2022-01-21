@@ -10,7 +10,7 @@ function Trips({trips, getTrip}) {
         <div className="card-body d-flex justify-content-around flex-wrap">
           {trips.map((trip, index ) => {
             return(
-              <div className="card text-white bg-info mb-3" onClick={() => getTrip(trip.id)}>
+              <div key={trip.id} className="card text-white bg-info mb-3" onClick={() => getTrip(trip.id)}>
                 <div className="card-header d-flex justify-content-between">
                   <h5>Trip {index}</h5>
                   {/* <div onClick={() => deleteId(hotel.id)} className="btn btn-danger">X</div> */}

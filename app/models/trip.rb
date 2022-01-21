@@ -12,7 +12,7 @@ class Trip < ActiveRecord::Base
     if from_changed?
       url = "http://api.positionstack.com/v1/forward?access_key=1bc72b66b8387a97321dcaf29b1d5856&query=#{from}"
       data = JSON.parse(RestClient.get(url).body)['data'].first
-
+      puts data
       if data
         self.from_latitude = data['latitude']
         self.from_longitude = data['longitude']
@@ -25,7 +25,7 @@ class Trip < ActiveRecord::Base
     if to_changed?
       url = "http://api.positionstack.com/v1/forward?access_key=1bc72b66b8387a97321dcaf29b1d5856&query=#{to}"
       data = JSON.parse(RestClient.get(url).body)['data'].first
-
+      puts data
       if data
         self.to_latitude = data['latitude']
         self.to_longitude = data['longitude']

@@ -63,7 +63,7 @@ function App() {
           <Trips trips={user.trips} getTrip={getTrip}/>
         </div>
 
-        <TripForm trip={trip} setTrip={setTrip}/>
+        <TripForm user={user} trip={trip} setTrip={setTrip}/>
       </>
     )
   }

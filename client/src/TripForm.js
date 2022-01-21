@@ -1,6 +1,6 @@
 import {useRef} from 'react'
 
-function TripForm({trip, setTrip}) {
+function TripForm({trip, setTrip, user}) {
 
   const from = useRef('')
   const to = useRef('');
@@ -13,9 +13,10 @@ function TripForm({trip, setTrip}) {
     const newTrip = {
       trip: {
         from: from.current.value,
-        to: to.current.value, //
+        to: to.current.value,
         depart_date: date.current.value,
         budget: budget.current.value,
+        user_id: user.id
       }
     }
 

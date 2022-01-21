@@ -11,7 +11,7 @@ function Nav() {
           <div className="collapse navbar-collapse" id="navbarNav" >
             <ul className="navbar-nav mr-auto">
               <li className="nav-item">
-                <Link to="/"><h5 style={{color:"white", margin: "auto", padding:"10px", textDecoration:"none"}}>Home<span className="sr-only">(current)</span></h5></Link>
+                <Link to="/"><h5 style={{color:"white", margin: "auto", padding:"10px", textDecoration:"none"}}>Trip<span className="sr-only">(current)</span></h5></Link>
               </li>
               <li className="nav-item">
                 <Link to="/hotels"><h5 style={{color:"white", margin: "auto", padding:"10px"}}>Hotels</h5></Link>

@@ -22,12 +22,14 @@ function Map({zoom, latitude, longitude, locations, point_icon}) {
         if (location.latitude && location.longitude) {
           return (
             <Marker key={location.id} latitude={location.latitude} longitude={location.longitude}>
-              <button class='marker-button'>
+              <button className='marker-button'>
                 <img className='marker-button' src={point_icon} alt='hotel'/>
               </button>
             </Marker>
           )
-        } else { return null }
+        } else { 
+          return null
+        }
       })}
     </ReactMapGL>
   )

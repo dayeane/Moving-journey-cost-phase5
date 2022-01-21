@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import MapGL, { Source, Layer, Marker } from '@urbica/react-map-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
@@ -11,22 +11,24 @@ function Map({zoom, from_latitude, from_longitude, to_latitude, to_longitude}) {
     longitude: from_longitude,
     zoom: zoom
   });
-
+  
   const [tripRoute, setTripRoute] = useState({
     type: 'Feature',
   });
 
-  fetch(`https://api.mapbox.com/directions/v5/mapbox/driving/${from_longitude + ',' + from_latitude + ';' + to_longitude + ',' + to_latitude}?geometries=geojson&access_token=${MAPBOX_TOKEN}`)
-  .then(response => response.json())
-  .then(data => {
-    if (data['routes']) {
-      setTripRoute({
-        ...tripRoute,
-        geometry: data['routes'][0]["geometry"]
-      })
-    }
-  })
-
+  useEffect(() => {
+    fetch(`https://api.mapbox.com/directions/v5/mapbox/driving/${from_longitude + ',' + from_latitude + ';' + to_longitude + ',' + to_latitude}?geometries=geojson&access_token=${MAPBOX_TOKEN}`)
+    .then(response => response.json())
+    .then(data => {
+      if (data['routes']) {
+        setTripRoute({
+          ...tripRoute,
+          geometry: data['routes'][0]["geometry"]
+        })
+      }
+    })
+  },[])
+  
   return (
     <>
       <MapGL

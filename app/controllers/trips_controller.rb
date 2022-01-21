@@ -2,7 +2,8 @@ class TripsController < ApplicationController
   before_action :set_trip, only: %i[show update destroy]
 
   def index
-    @trips = Trip.all.to_json
+    current_user = User.find(session[:user_id])
+    @trips = current_user.trips
     render json: @trips, status: :ok
   end
 
@@ -27,8 +28,10 @@ class TripsController < ApplicationController
   private
 
   def set_trip
+    current_user = User.find(session[:user_id])
+    
     trip_id = params[:id] || params[:trip_id]
-    @trip = Trip.find(trip_id)
+    @trip = current_user.trips.find(trip_id)
   end
 
   def trip_params

@@ -1,11 +1,11 @@
 require 'date'
 puts "🌱 Seeding spices..."
 
-
+user = User.create(name: 'Salvatore', email_address: 'salvatore@aol.com', password: '123456')
 
 (0..5).each do |num|
   puts "creating_trip #{num}"
-  trip1 = Trip.create(from: Faker::Address.full_address, to: Faker::Address.full_address, depart_date: Date.today, budget: 16)
+  trip1 = user.trips.create(from: Faker::Address.full_address, to: Faker::Address.full_address, depart_date: Date.today, budget: 16)
 
   (0..5).each do |num2|
     puts "creating_stops #{num2}"

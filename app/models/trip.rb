@@ -4,6 +4,8 @@ class Trip < ActiveRecord::Base
   has_many :costs
   has_many :providers
 
+  belongs_to :user
+
   before_save :geocode_endpoints
 
   def geocode_endpoints

@@ -42,7 +42,7 @@ function App() {
     setUser(null);
   }
 
-  if (!user){
+  if (!user || user.error){
     return(
       <div>
         <Login onLogin={setUser} />
@@ -51,7 +51,7 @@ function App() {
     )
   }
 
-  if (!trip.from) {
+  if (user.id && !trip.from) {
     return (
       <>
         <div className="card mt-5 text-center">

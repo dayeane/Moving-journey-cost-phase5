@@ -14,11 +14,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # def lists
-  #   user = User.find_by(id: session[:user_id])
-  #   render json: user
-  # end
-
   private
 
    def user_params

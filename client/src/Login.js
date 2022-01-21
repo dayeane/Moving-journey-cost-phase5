@@ -3,7 +3,7 @@ import {useState} from 'react'
 function Login({ onLogin }) {
   const [email_address, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  
+
   function handleSubmit(e) {
     e.preventDefault();
     fetch("/login", {
@@ -14,9 +14,7 @@ function Login({ onLogin }) {
       body: JSON.stringify({ email_address, password }),
     })
       .then((r) => r.json())
-      .then((user) => {
-        debugger
-        onLogin(user)});
+      .then((user) => {onLogin(user)});
   }
 
   return (
@@ -31,29 +29,31 @@ function Login({ onLogin }) {
               <form  onSubmit={handleSubmit}>
                 <div className=" form-group text-center mt-2">
                   <label className="mr-2" htmlFor="name">Email:</label>
-                  <input 
+                  <input
                     type="text"
                     value={email_address}
                     onChange={(e) => setEmail(e.target.value)}
+                    required
                   />
                   <label className="mr-2 ml-2" htmlFor="name">Password:</label>
-                  <input 
+                  <input
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
+                    required
                   />
                 </div>
                 <p className="text-center">
                   <button className="btn btn-primary mt-3 mb-3" type="submit">Login</button>
                 </p>
                 <br></br>
-                <br></br>  
+                <br></br>
               </form>
           </div>
         </div>
       </div>
     </div>
-  
+
   );
 }
 

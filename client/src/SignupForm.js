@@ -56,6 +56,7 @@ function SignupForm({ setUser }) {
                   value={formData.name}
                   onChange={(e) => handleChange(e)}
                   autoComplete="off"
+                  required
                 />
               </div>
               <div className="col-12">
@@ -68,6 +69,7 @@ function SignupForm({ setUser }) {
                   value={formData.email_address}
                   onChange={(e) => handleChange(e)}
                   autoComplete="off"
+                  required
                 />
               </div>
               <div className="col-12">
@@ -79,6 +81,7 @@ function SignupForm({ setUser }) {
                   value={formData.password}
                   onChange={(e) => handleChange(e)}
                   autoComplete="off"
+                  required
                 />
               </div>
               <div className="col-12">
@@ -90,6 +93,7 @@ function SignupForm({ setUser }) {
                   value={formData.password_confirmation}
                   onChange={(e) => handleChange(e)}
                   autoComplete="off"
+                  required
                 />
               </div>
               <div className="text-center">

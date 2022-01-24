@@ -24,7 +24,7 @@ function Trips({trips, getTrip}) {
               <Link to="/trip" key={trip.id} className="card text-white bg-info mb-3 col-12 col-lg-5" onClick={() => getTrip(trip.id)}>
                 <div className="card-header d-flex justify-content-between">
                   <h5>Trip {index}</h5>
-                  <div onClick={() => deleteId(trip.id)} className="btn btn-danger">X</div>
+                  <div onClick={() => {if(window.confirm('Delete the item?')){deleteId(trip.id)}}} className="btn btn-danger">X</div>
                 </div>
                 <div className="card-body">
                   <p><span className="font-weight-bold">Depart Date:</span> {trip.depart_date}</p>

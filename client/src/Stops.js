@@ -30,7 +30,7 @@ function Stops({trip}) {
               <div  className="card text-white bg-info mb-3 col-12 col-lg-5" key={stop.id}>
                 <div className="card-header d-flex justify-content-between">
                   <h5>Stop {index + 1}</h5>
-                  <div onClick={() => deleteId(stop.id)} className="btn btn-danger">X</div>
+                  <div onClick={() => {if(window.confirm('Delete the item?')){deleteId(stop.id)}}} className="btn btn-danger">X</div>
                 </div>
                 <div className="card-body ">
                   <div><span className="font-weight-bold">Stop Reason:</span> {stop.stop_reason} </div>

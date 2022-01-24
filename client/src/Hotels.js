@@ -26,7 +26,7 @@ function Hotels({trip}) {
               <div key={hotel.id} className="card text-white bg-info mb-3 col-12 col-lg-5">
                 <div className="card-header d-flex justify-content-between">
                   <h5>Hotel {index + 1} </h5>
-                  <div onClick={() => deleteId(hotel.id)} className="btn btn-danger">X</div>
+                  <div onClick={() => {if(window.confirm('Delete the item?')){deleteId(hotel.id)}}} className="btn btn-danger">X</div>
                 </div>
                 <div className="card-body">
                   <p><span className="font-weight-bold">Check in:</span> {hotel.check_in}</p>

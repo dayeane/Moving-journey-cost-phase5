@@ -24,7 +24,7 @@ function Providers({trip}) {
               <div  className="card text-white bg-info mb-3 col-12 col-lg-5" key={provider.id}>
                 <div className="card-header d-flex justify-content-between">
                   <h5>Provider {index + 1}</h5>
-                  <div onClick={() => deleteId(provider.id)} className="btn btn-danger">X</div>
+                  <div onClick={() => {if(window.confirm('Delete the item?')){deleteId(provider.id)}}} className="btn btn-danger">X</div>
                 </div>
                 <div className="card-body">
                   <p><span className="font-weight-bold">Name:</span> {provider.name}</p>

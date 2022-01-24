@@ -1,7 +1,17 @@
-// import {useState} from "react"
+import {useState} from "react"
 import { Link } from 'react-router-dom';
 
 function Trips({trips, getTrip}) {
+  const [tripList, setTrips] = useState(trips);
+
+  function deleteId(id) {
+    fetch(`/trips/${id}`, {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json"  }
+    }).then((r) => r.json())
+      .then((data) => setTrips(data));
+  }
+
   return(
     <>
       <div className="card mt-5">
@@ -9,12 +19,12 @@ function Trips({trips, getTrip}) {
           <h4>Trips</h4>
         </div>
         <div className="card-body d-flex justify-content-around flex-wrap">
-          {trips.map((trip, index ) => {
+          {tripList.map((trip, index ) => {
             return(
               <Link to="/trip" key={trip.id} className="card text-white bg-info mb-3 col-12 col-lg-5" onClick={() => getTrip(trip.id)}>
                 <div className="card-header d-flex justify-content-between">
                   <h5>Trip {index}</h5>
-                  {/* <div onClick={() => deleteId(hotel.id)} className="btn btn-danger">X</div> */}
+                  <div onClick={() => deleteId(trip.id)} className="btn btn-danger">X</div>
                 </div>
                 <div className="card-body">
                   <p><span className="font-weight-bold">Depart Date:</span> {trip.depart_date}</p>

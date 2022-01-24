@@ -22,14 +22,16 @@ class TripsController < ApplicationController
   end
 
   def destroy
-    render json: @trip.destroy(), status: :ok
+    current_user = User.find(session[:user_id])
+    @trips = current_user.trips
+    render json: @trips, status: :ok if @trip.destroy()
   end
 
   private
 
   def set_trip
     current_user = User.find(session[:user_id])
-    
+
     trip_id = params[:id] || params[:trip_id]
     @trip = current_user.trips.find(trip_id)
   end

@@ -34,7 +34,10 @@ function App() {
   function handleLogout() {
     fetch("/logout", {
       method: "DELETE",
-    }).then(() => onLogout());
+    }).then(() => {
+      onLogout();
+      window.location.replace("/");
+    });
   }
 
   //USER LOGOUT HANDLER
@@ -57,7 +60,7 @@ function App() {
         <div className="card mt-5 text-center">
           <div className="card header bg-light"></div>
           <h1>Moving Cost Trip</h1>
-          <Link to="/"><button className="btn btn-danger mt-3 mb-3" style={{fontFamily:"dosis"}} type="submit" value="Add Item"  onClick={handleLogout} >Logout</button></Link>
+          <button className="btn btn-danger mt-3 mb-3" style={{fontFamily:"dosis"}} type="submit" value="Add Item"  onClick={handleLogout} >Logout</button>
         </div>
         <div className="card mt-5 text-center">
           <Trips trips={user.trips} getTrip={getTrip}/>
@@ -70,7 +73,7 @@ function App() {
 
   return (
     <div className="App">
-      <Nav/>
+      <Nav handleLogout={handleLogout} />
       <Switch>
         <Route path='/hotels'>
           <Hotels trip={trip} />

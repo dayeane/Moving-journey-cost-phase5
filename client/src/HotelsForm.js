@@ -1,6 +1,6 @@
 import {useRef} from 'react'
 
-function HotelsForm({trip, setHotels}) {
+function HotelsForm({trip, setHotels, setMarkers}) {
 
   const check_in = useRef('');
   const check_out = useRef('');

@@ -13,9 +13,11 @@ function Hotels({trip}) {
     }).then((r) => r.json())
       .then((data) => setHotels(data));
   }
+
+  
   return(
     <>
-      <Map trip={trip} zoom={3} point_icon={hotel_icon} latitude={trip.from_latitude} longitude={trip.from_longitude} locations={trip.hotels}/>
+      <Map trip={trip} zoom={3} point_icon={hotel_icon} latitude={trip.from_latitude} longitude={trip.from_longitude} locations={hotels}/>
       <div className="card mt-5">
         <div className="card-header font-weight-bold">
           <h4>Hotels</h4>

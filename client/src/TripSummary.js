@@ -14,8 +14,8 @@ function TripSummary({trip}) {
     )
   }
 
-  if(trip.costs.length > 0) {
-    total_cost = trip.costs.map(x => x.amount).reduce((x, y) => x + y)
+  if(currentTrip.costs.length > 0) {
+    total_cost = currentTrip.costs.map(x => x.amount).reduce((x, y) => x + y) + currentTrip.budget
   }
 
   if(editMode){
@@ -23,7 +23,7 @@ function TripSummary({trip}) {
   } else {
     return (
       <div className="card mt-5">
-        <MapRoutes zoom={11} from_latitude={trip.from_latitude} from_longitude={trip.from_longitude} to_latitude={trip.to_latitude} to_longitude={trip.to_longitude}/>
+        <MapRoutes zoom={11} from_latitude={currentTrip.from_latitude} from_longitude={currentTrip.from_longitude} to_latitude={trip.to_latitude} to_longitude={trip.to_longitude}/>
 
         <div className="card-header font-weight-bold d-flex justify-content-between">
           <h4>Trip Summary</h4>
@@ -43,7 +43,7 @@ function TripSummary({trip}) {
           </div>
 
           <div className="d-flex justify-content-around mt-2">
-            <p className="col"><span className="font-weight-bold">Total Expenses:</span> { total_cost }</p>
+            <p className="col"><span className="font-weight-bold">Total Expenses:</span> { total_cost || currentTrip.budget }</p>
           </div>
         </div>
       </div>

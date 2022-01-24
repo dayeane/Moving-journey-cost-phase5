@@ -14,11 +14,17 @@ import Trips from './Trips'
 function App() {
   const [trip, setTrip] = useState({});
   const [user, setUser] = useState(null);
+  const [trips, setTrips] = useState([]);
+
 
   useEffect(() => {
     fetch("/me").then((response) => {
       if (response.ok) {
-        response.json().then((user) => setUser(user));
+        response.json().then((user) => {
+          setUser(user)
+          setTrips(user.trips)
+        
+        });
       }
     });
   }, []);
@@ -60,7 +66,7 @@ function App() {
           <Link to="/"><button className="btn btn-danger mt-3 mb-3" style={{fontFamily:"dosis"}} type="submit" value="Add Item"  onClick={handleLogout} >Logout</button></Link>
         </div>
         <div className="card mt-5 text-center">
-          <Trips trips={user.trips} getTrip={getTrip}/>
+          <Trips trips={trips} getTrip={getTrip} setTrips={setTrips} user={user} setUser={setUser}/>
         </div>
 
         <TripForm user={user} trip={trip} setTrip={setTrip}/>

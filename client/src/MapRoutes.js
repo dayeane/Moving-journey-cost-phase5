@@ -7,11 +7,11 @@ import point_icon from './assets/point.png'
 function Map({zoom, from_latitude, from_longitude, to_latitude, to_longitude}) {
   const MAPBOX_TOKEN = 'pk.eyJ1IjoiYWZ1cm8iLCJhIjoiY2t5ZW4zOWFpMGRqczJxcWtheWNvZHQ2aiJ9.hn3zYWxYhJZv0YcZAVQcsA'
   const [viewport, setViewport] = useState({
-    latitude: from_latitude,
-    longitude: from_longitude,
+    latitude: (from_latitude + to_latitude) /2,
+    longitude: (from_longitude + to_longitude) /2,
     zoom: zoom
   });
-  
+
   const [tripRoute, setTripRoute] = useState({
     type: 'Feature',
   });
@@ -20,7 +20,7 @@ function Map({zoom, from_latitude, from_longitude, to_latitude, to_longitude}) {
     fetch(`https://api.mapbox.com/directions/v5/mapbox/driving/${from_longitude + ',' + from_latitude + ';' + to_longitude + ',' + to_latitude}?geometries=geojson&access_token=${MAPBOX_TOKEN}`)
     .then(response => response.json())
     .then(data => {
-      if (data['routes']) {
+      if (data['routes'] && !data['message']) {
         setTripRoute({
           ...tripRoute,
           geometry: data['routes'][0]["geometry"]
@@ -28,7 +28,7 @@ function Map({zoom, from_latitude, from_longitude, to_latitude, to_longitude}) {
       }
     })
   },[])
-  
+
   return (
     <>
       <MapGL

@@ -27,7 +27,7 @@ function Stops({trip}) {
         <div className="card-body d-flex justify-content-around flex-wrap">
           {stops.map( (stop, index) => {
             return(
-              <div  className="card text-white bg-info mb-3" key={stop.id}>
+              <div  className="card text-white bg-info mb-3 col-12 col-lg-5" key={stop.id}>
                 <div className="card-header d-flex justify-content-between">
                   <h5>Stop {index + 1}</h5>
                   <div onClick={() => deleteId(stop.id)} className="btn btn-danger">X</div>

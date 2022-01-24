@@ -21,7 +21,7 @@ function Providers({trip}) {
         <div className="card-body d-flex justify-content-around flex-wrap">
           {providers.map((provider, index ) => {
             return(
-              <div  className="card text-white bg-info mb-3" key={provider.id}>
+              <div  className="card text-white bg-info mb-3 col-12 col-lg-5" key={provider.id}>
                 <div className="card-header d-flex justify-content-between">
                   <h5>Provider {index + 1}</h5>
                   <div onClick={() => deleteId(provider.id)} className="btn btn-danger">X</div>

@@ -81,8 +81,11 @@ function App() {
         <Route path='/stops'>
           <Stops trip={trip} />
         </Route>
-        <Route path='/'>
+        <Route path='/trip'>
           <TripSummary trip={trip} />
+        </Route>
+        <Route path='/'>
+          <Trips trips={user.trips} getTrip={getTrip}/>
         </Route>
       </Switch>
     </div>

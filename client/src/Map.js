@@ -14,6 +14,7 @@ function Map({zoom, latitude, longitude, locations, point_icon}) {
   return (
     <ReactMapGL
       {...viewport}
+      mapStyle='mapbox://styles/mapbox/light-v10'
       width="100%"
       height="400px"
       mapboxApiAccessToken={MAPBOX_TOKEN}
@@ -28,7 +29,7 @@ function Map({zoom, latitude, longitude, locations, point_icon}) {
               </button>
             </Marker>
           )
-        } else { 
+        } else {
           return null
         }
       })}

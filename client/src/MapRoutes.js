@@ -32,8 +32,8 @@ function Map({zoom, from_latitude, from_longitude, to_latitude, to_longitude}) {
   return (
     <>
       <MapGL
-        style={{ width: '100%', height: '300px' }}
-        mapStyle='mapbox://styles/mapbox/light-v9'
+        style={{ width: '100%', height: '400px' }}
+        mapStyle='mapbox://styles/mapbox/dark-v10'
         accessToken={MAPBOX_TOKEN}
         latitude={viewport.latitude}
         longitude={viewport.longitude}

@@ -41,8 +41,8 @@ function SignupForm({ setUser }) {
     <div className="container">
       <div className="row justify-content-center">
         <div className="col-8">
-          <div className="card mt-2 " style={{borderRadius:"10px", fontFamily:"dosis"}}>
-            <div className="card-header bg-primary" style={{color:"white"}}>
+          <div className="card mt-2">
+            <div className="card-header card-header-index">
             <h3 className="text-center">New User?</h3>
             </div>
             <h5 className="text-center mt-2" >Create Account:</h5>

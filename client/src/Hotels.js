@@ -14,21 +14,21 @@ function Hotels({trip}) {
       .then((data) => setHotels(data));
   }
 
-  
+
   return(
     <>
-      <Map trip={trip} zoom={3} point_icon={hotel_icon} latitude={trip.from_latitude} longitude={trip.from_longitude} locations={hotels}/>
-      <div className="card mt-5">
-        <div className="card-header font-weight-bold">
+      <div className="card">
+        <Map trip={trip} zoom={3} point_icon={hotel_icon} latitude={trip.from_latitude} longitude={trip.from_longitude} locations={hotels}/>
+        <div className="card-header card-header-index font-weight-bold">
           <h4>Hotels</h4>
         </div>
-        <div className="card-body d-flex justify-content-around flex-wrap">
+        <div className="card-body card-body-index d-flex justify-content-around flex-wrap">
           {hotels.map((hotel, index ) => {
             return(
-              <div key={hotel.id} className="card text-white bg-info mb-3 col-12 col-lg-5">
+              <div key={hotel.id} className="card text-white bg-info mb-3 col-12 col-lg-6">
                 <div className="card-header d-flex justify-content-between">
                   <h5>Hotel {index + 1} </h5>
-                  <div onClick={() => {if(window.confirm('Delete the item?')){deleteId(hotel.id)}}} className="btn btn-danger">X</div>
+                  <div onClick={() => {if(window.confirm('Delete the item?')){deleteId(hotel.id)}}} className="btn btn-danger btn-destroy">X</div>
                 </div>
                 <div className="card-body">
                   <p><span className="font-weight-bold">Check in:</span> {hotel.check_in}</p>
@@ -40,9 +40,8 @@ function Hotels({trip}) {
             )
           })}
         </div>
+        <HotelsForm trip={trip} setHotels={setHotels}/>
       </div>
-
-      <HotelsForm trip={trip} setHotels={setHotels}/>
     </>
   )
 }

@@ -21,8 +21,8 @@ function Login({ onLogin }) {
     <div className="container">
       <div className="row justify-content-center">
         <div className="col-8" >
-          <div className="card mt-5" style={{borderRadius:"10px", fontFamily:"dosis"}}>
-            <div className="card-header bg-primary" style={{color:"white"}} >
+          <div className="card mt-5" >
+            <div className="card-header card-header-index" >
               <h3 className="text-center" >Welcome to the Moving Journey Cost!</h3>
             </div>
             <h5 className="text-center mt-2" >User Login:</h5>

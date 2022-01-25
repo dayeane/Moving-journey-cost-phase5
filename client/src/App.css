@@ -1,5 +1,22 @@
+@import './styles/nav.css';
+@import './styles/card.css';
+
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
+
+body {
+  font-family: Comfortaa;
+  /* background-color: #1c91f7; */
+  background-image: url("./assets/background-map.jpeg");
+  background-size: cover;
+}
+
+#root {
+  background-color: white;
+  height: 100vh
+}
+
 .App {
-  text-align: center;
+  background-color: white;
 }
 
 .App-logo {

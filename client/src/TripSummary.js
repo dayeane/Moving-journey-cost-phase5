@@ -22,10 +22,10 @@ function TripSummary({trip}) {
     return( <TripEditForm trip={currentTrip} editMode={editMode} setEditMode={setEditMode} setCurrentTrip={setCurrentTrip}/> )
   } else {
     return (
-      <div className="card mt-5">
+      <div className="card">
         <MapRoutes zoom={3} from_latitude={currentTrip.from_latitude} from_longitude={currentTrip.from_longitude} to_latitude={trip.to_latitude} to_longitude={trip.to_longitude}/>
 
-        <div className="card-header font-weight-bold d-flex justify-content-between">
+        <div className="card-header card-header-index font-weight-bold d-flex justify-content-between">
           <h4>Trip Summary</h4>
           <div className="custom-control custom-switch">
             <input onChange={() => setEditMode(!editMode)} checked={editMode} type="checkbox" className="custom-control-input" id="customSwitch1" />

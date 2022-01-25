@@ -37,15 +37,17 @@ function HotelsForm({trip, setHotels, setMarkers}) {
   }
 
   return(
-    <div className="card mt-5 mb-2" >
-     <div className="card-header"><h4>New Hotel</h4></div>
-       <form className="ml-4" onSubmit={createHotel}>
-        <input className=" mr-4" ref={check_in} type="date" name="check in" placeholder="Check in" required/>
-        <input className=" mr-4" ref={check_out} type="date" name="check out" placeholder="Check out" required/>
-        <input className=" mr-4" ref={location} type="text" name="location" placeholder="Location" required/>
-        <input className=" mr-4" ref={cost} type="number" name="cost" placeholder="Cost" required/>
-        <button type="submit" className="btn btn-primary mb-2 mt-2 mr-6">Submit</button>
-      </form>
+    <div className="card m-2 mt-5" >
+     <div className="card-header card-header-index"><h4>New Hotel</h4></div>
+     <div className="card-body d-flex justify-content-around flex-wrap">
+        <form className="ml-4" onSubmit={createHotel}>
+          <input className=" mr-4" ref={check_in} type="date" name="check in" placeholder="Check in" required/>
+          <input className=" mr-4" ref={check_out} type="date" name="check out" placeholder="Check out" required/>
+          <input className=" mr-4" ref={location} type="text" name="location" placeholder="Location" required/>
+          <input className=" mr-4" ref={cost} type="number" name="cost" placeholder="Cost" required/>
+          <button type="submit" className="btn btn-primary mb-2 mt-2 mr-6">Submit</button>
+        </form>
+      </div>
     </div>
   )
 }

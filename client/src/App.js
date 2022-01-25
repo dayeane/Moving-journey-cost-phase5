@@ -57,14 +57,14 @@ function App() {
   if (user.id && !trip.from) {
     return (
       <>
-        <div className="card mt-5 text-center">
-          <div className="card header bg-light"></div>
-          <h1>Moving Cost Trip</h1>
-          <button className="btn btn-danger mt-3 mb-3" style={{fontFamily:"dosis"}} type="submit" value="Add Item"  onClick={handleLogout} >Logout</button>
-        </div>
-        <div className="card mt-5 text-center">
-          <Trips trips={user.trips} getTrip={getTrip}/>
-        </div>
+        <nav className="navbar navbar-expand-lg navbar-light">
+          <div id="navbarNav" >
+            <h5 className="navbar-btn">Moving Cost Trip</h5>
+          </div>
+          <button className="logout-btn btn btn-danger mt-3 mb-3" type="submit" value="Add Item"  onClick={handleLogout} >Logout</button>
+        </nav>
+
+        <Trips trips={user.trips} getTrip={getTrip}/>
 
         <TripForm user={user} trip={trip} setTrip={setTrip}/>
       </>

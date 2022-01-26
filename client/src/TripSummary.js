@@ -23,7 +23,7 @@ function TripSummary({trip}) {
   } else {
     return (
       <div className="card">
-        <MapRoutes zoom={3} from_latitude={currentTrip.from_latitude} from_longitude={currentTrip.from_longitude} to_latitude={trip.to_latitude} to_longitude={trip.to_longitude}/>
+        <MapRoutes zoom={3} from_latitude={currentTrip.from_latitude} from_longitude={currentTrip.from_longitude} to_latitude={currentTrip.to_latitude} to_longitude={currentTrip.to_longitude}/>
 
         <div className="card-header card-header-index font-weight-bold d-flex justify-content-between">
           <h4>Trip Summary</h4>

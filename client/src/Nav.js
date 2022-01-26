@@ -15,7 +15,7 @@ function Nav({handleLogout, tripId, getTrip}) {
               <a href="/"><h5 className="navbar-btn">Home<span className="sr-only">(current)</span></h5></a>
             </li>
             <li className="nav-item">
-              <Link to="/trip"><h5 className="navbar-btn">Trip</h5></Link>
+              <Link to="/trip" onClick={() => getTrip(tripId)}><h5 className="navbar-btn">Trip</h5></Link>
             </li>
             <li className="nav-item">
               <Link to="/hotels" onClick={() => getTrip(tripId)}><h5 className="navbar-btn" >Hotels</h5></Link>

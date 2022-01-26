@@ -42,13 +42,15 @@ function TripEditForm({trip, setCurrentTrip, setEditMode, editMode}) {
             <label className="custom-control-label" htmlFor="customSwitch1">Toggle this box exit edit mode</label>
           </div>
         </div>
-        <form className="ml-4" onSubmit={updateTrip}>
-          <input onChange={(e) => {setFrom(e.target.value)}} value={from} className="mb-2 mr-2" type="text" name="from" placeholder="From" required/>
-          <input onChange={(e) => {setTo(e.target.value)}} value={to}  className="mr-4" type="text" name="to" placeholder="To" required/>
-          <input onChange={(e) => {setDate(e.target.value)}} value={date}  className="mr-4"  type='date' name="depart-date" placeholder="Depart Date" required/>
-          <input onChange={(e) => {setBudget(e.target.value)}} value={budget}  className="mr-4" type="text" name="budget" placeholder="Budget" required/>
-          <button type="submit" className="btn btn-primary mb-2 mt-2 mr-6">Submit</button>
-        </form>
+        <div className="card-body d-flex justify-content-around flex-wrap">
+          <form className="ml-4" onSubmit={updateTrip}>
+            <input onChange={(e) => {setFrom(e.target.value)}} value={from} className="mb-2 mr-2" type="text" name="from" placeholder="From" required/>
+            <input onChange={(e) => {setTo(e.target.value)}} value={to}  className="mr-4" type="text" name="to" placeholder="To" required/>
+            <input onChange={(e) => {setDate(e.target.value)}} value={date}  className="mr-4"  type='date' name="depart-date" placeholder="Depart Date" required/>
+            <input onChange={(e) => {setBudget(e.target.value)}} value={budget}  className="mr-4" type="text" name="budget" placeholder="Budget" required/>
+            <button type="submit" className="btn btn-primary mb-2 mt-2 mr-6">Submit</button>
+          </form>
+        </div>
       </div>
     </div>
   )

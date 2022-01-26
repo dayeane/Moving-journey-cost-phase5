@@ -1,6 +1,9 @@
 import {useState, useEffect} from 'react'
 import ReactMapGL, { Marker } from 'react-map-gl';
+import mapboxgl from 'mapbox-gl';
 
+// eslint-disable-next-line import/no-webpack-loader-syntax
+mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default;
 
 function Map({zoom, latitude, longitude, locations, point_icon}) {
 

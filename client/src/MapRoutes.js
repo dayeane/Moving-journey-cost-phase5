@@ -1,8 +1,11 @@
 import {useState, useEffect} from 'react'
 import MapGL, { Source, Layer, Marker } from '@urbica/react-map-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
-
+import mapboxgl from 'mapbox-gl';
 import point_icon from './assets/point.png'
+
+// eslint-disable-next-line import/no-webpack-loader-syntax
+mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default;
 
 function Map({zoom, from_latitude, from_longitude, to_latitude, to_longitude}) {
   const MAPBOX_TOKEN = 'pk.eyJ1IjoiYWZ1cm8iLCJhIjoiY2t5ZW4zOWFpMGRqczJxcWtheWNvZHQ2aiJ9.hn3zYWxYhJZv0YcZAVQcsA'

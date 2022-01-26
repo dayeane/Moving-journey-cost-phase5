@@ -30,6 +30,7 @@ function TripForm({trip, setTrip, user}) {
     .then(res => res.json())
     .then(data => {
       setTrip(data)
+      window.location.replace("/")
     })
 
   }

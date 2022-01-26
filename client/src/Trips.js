@@ -21,18 +21,18 @@ function Trips({trips, getTrip}) {
         <div className="card-body card-body-index d-flex justify-content-around flex-wrap">
           {tripList.map((trip, index ) => {
             return(
-              <Link to="/trip" key={trip.id} className="card text-white bg-info mb-3 col-12 col-lg-6" onClick={() => getTrip(trip.id)}>
+              <div className="card text-white bg-info mb-3 col-12 col-lg-6">
                 <div className="card-header d-flex justify-content-between">
                   <h5>Trip {index}</h5>
                   <div onClick={() => {if(window.confirm('Delete the item?')){deleteId(trip.id)}}} className="btn btn-danger btn-destroy">X</div>
                 </div>
-                <div className="card-body">
+                <Link to="/trip" key={trip.id} className="card-body" onClick={() => getTrip(trip.id)}>
                   <p><span className="font-weight-bold">Depart Date:</span> {trip.depart_date}</p>
                   <p><span className="font-weight-bold">From:</span> {trip.from}</p>
                   <p><span className="font-weight-bold">To:</span> {trip.to}</p>
                   <p><span className="font-weight-bold">Budget:</span> {trip.budget}</p>
-                </div>
-              </Link>
+                </Link>
+              </div>
             )
           })}
         </div>

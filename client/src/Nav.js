@@ -1,7 +1,7 @@
 
 import { Link } from 'react-router-dom';
 
-function Nav({handleLogout}) {
+function Nav({handleLogout, tripId, getTrip}) {
 
   return (
     <div>
@@ -18,13 +18,13 @@ function Nav({handleLogout}) {
               <Link to="/trip"><h5 className="navbar-btn">Trip</h5></Link>
             </li>
             <li className="nav-item">
-              <Link to="/hotels"><h5 className="navbar-btn">Hotels</h5></Link>
+              <Link to="/hotels" onClick={() => getTrip(tripId)}><h5 className="navbar-btn" >Hotels</h5></Link>
             </li>
             <li className="nav-item">
-              <Link to="/providers"><h5 className="navbar-btn">Providers</h5></Link>
+              <Link to="/providers" onClick={() => getTrip(tripId)}><h5 className="navbar-btn">Providers</h5></Link>
             </li>
             <li className="nav-item">
-              <Link to="/stops"><h5 className="navbar-btn">Stops</h5></Link>
+              <Link to="/stops" onClick={() => getTrip(tripId)}><h5 className="navbar-btn">Stops</h5></Link>
             </li>
           </ul>
         </div>

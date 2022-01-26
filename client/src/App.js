@@ -73,7 +73,7 @@ function App() {
 
   return (
     <div className="App">
-      <Nav handleLogout={handleLogout} />
+      <Nav handleLogout={handleLogout} tripId={trip.id} getTrip={getTrip}/>
       <Switch>
         <Route path='/hotels'>
           <Hotels trip={trip} />
